@@ -1,0 +1,15 @@
+= form_with scope: :user, url: url do |form|
+    div
+        = form.label :name
+        = form.text_field :name
+    div
+        = form.label :email
+        = form.text_field :email
+    div
+        = form.label :nickname
+        = form.text_field :nickname
+    div
+        = form.label :password
+        = form.text_field :password, type: :password
+    
+    = form.submit "Register!"
