@@ -1,0 +1,10 @@
+h1 
+    ' Community called:
+    = @community.name
+
+div
+    p 
+        ' find more
+        = @community.description
+
+= link_to "Delete This community", community_path(@community), data:{ turbo_method: :delete } 

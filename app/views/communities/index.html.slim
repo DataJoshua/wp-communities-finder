@@ -1,0 +1,13 @@
+
+h1
+    ' Here you have all our communities available
+
+- @communities.each do |community|
+    article
+        div
+            = community.name
+        div
+            = community.description
+        div
+            = community.url
+
