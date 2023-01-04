@@ -1,6 +1,8 @@
 class CommunitiesController < ApplicationController
 
     before_action :set_community, only: %i[edit show update destroy]
+    before_action ->{authorize! Community}, only: %i[index show]
+    before_action ->{authorize! @community}, only: %i[edit update destroy]
 
     def show
     end
@@ -11,10 +13,12 @@ class CommunitiesController < ApplicationController
 
     def new
         @community = Community.new
+        authorize! @community
     end
 
     def create
         @community = create_community.community
+        authorize! @community
 
         if create_community.success? 
             flash[:notice] = "New community created!"
@@ -58,7 +62,7 @@ class CommunitiesController < ApplicationController
 
     def create_community
         @create_community ||= 
-            Communities::Create.call(community_params: community_params)
+            Communities::Create.call(community_params: community_params, user: current_user)
     end
 
     def set_community

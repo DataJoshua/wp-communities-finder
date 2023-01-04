@@ -2,7 +2,7 @@ module Communities
   class Save
     include Interactor
     
-    delegate :community_params, to: :context
+    delegate :community_params, :user, to: :context
 
     def call
         context.community = community
@@ -13,7 +13,7 @@ module Communities
     private
 
     def community
-        @community ||= Community.new(community_params)
+        @community ||= Community.new(community_params.merge({user: user}))
     end
 
   end
