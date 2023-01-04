@@ -21,3 +21,40 @@
 .flash-alert{
     color: red;
 }
+
+.josh-btn{
+    padding: 5px 20px;
+    background: blue;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    border: 2px solid blue;
+    transition: all .5s ease;
+}
+  
+.josh-btn:hover{
+    background: transparent;
+}
+
+.main-banner{
+    background-size: cover;
+    background-position: left;
+    height: 100vh;
+}
+
+// `xs` returns only a ruleset and no media query
+// ... { ... }
+
+// `sm` applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { 
+    .main-banner{
+        background-position: center;
+    }
+}
+
+// `md` applies to small devices (landscape phones, less than 768px)
+@media (max-width: 1000px) { 
+    .main-banner{
+        background-position: center;
+    }
+}
