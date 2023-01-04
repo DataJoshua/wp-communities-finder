@@ -11,6 +11,8 @@
   </head>
 
   <body>
+
+    <%= render "layouts/nav" %>
     <div>
       <% flash.each do |type, msg| %>
         <div class="flash-<%=type%>">

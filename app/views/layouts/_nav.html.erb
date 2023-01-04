@@ -1,0 +1,26 @@
+<nav class="position-absolute to-0 left-0 navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <%= link_to "Communities", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="nav-collapse-e collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to "Communities", communities_path, class: "nav-link"%>
+        </li>
+        <% if allowed_to?(:new?, with: UserPolicy)%>
+          <li class="nav-item">
+            <%= link_to "Sign up", register_path, class: "nav-link" %>
+          </li>
+        <% end%>
+
+        <% if allowed_to?(:new?, with: SessionPolicy) %>
+          <li class="nav-item">
+            <%= link_to "Log in", login_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

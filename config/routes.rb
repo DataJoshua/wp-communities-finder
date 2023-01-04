@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   get 'users/create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root "communities#index"
+  root "home#index"
   resources :communities
 end
