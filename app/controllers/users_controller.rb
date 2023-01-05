@@ -12,8 +12,7 @@ class UsersController < ApplicationController
       flash[:notice] = "User created successfully"
       redirect_to root_path
     else
-      flash[:alert] = "User creation failed"
-      render :new
+      render :new, notice: "user error"
     end
   end
 

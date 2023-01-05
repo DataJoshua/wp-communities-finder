@@ -1,15 +1,21 @@
-= form_with scope: :user, url: url do |form|
+= form_with model: user, url: "register", class:"d-flex flex-column gap-3" do |form|
+    = if user.errors.any?
+        ul
+            = user.errors.each do |error|
+                li  = error.full_message
+
     div
-        = form.label :name
-        = form.text_field :name
+        = form.label :first_name, class: "form-label text-white"
+        = form.text_field :first_name, class: "form-control"
     div
-        = form.label :email
-        = form.text_field :email
+        = form.label :email, class:"form-label text-white"
+        = form.text_field :email, class: "form-control"
     div
-        = form.label :nickname
-        = form.text_field :nickname
+        = form.label :nickname, class:"form-label text-white"
+        = form.text_field :nickname, class: "form-control"
     div
-        = form.label :password
-        = form.text_field :password, type: :password
+        = form.label :password, class: "form-label text-white"
+        = form.text_field :password, type: :password, class: "form-control"
     
-    = form.submit "Register!"
+    div
+        = form.submit "Register!", class: "josh-btn"

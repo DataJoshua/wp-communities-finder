@@ -1,0 +1,15 @@
+.communities{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    gap: 20px;
+}
+
+.community{
+    background: rgba(204, 204, 204, 0.507);
+}
+
+@media (max-width: 1000px) { 
+    .communities{
+        grid-template-columns: 100%;
+    }
+}

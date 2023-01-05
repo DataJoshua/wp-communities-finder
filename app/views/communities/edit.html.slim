@@ -1,4 +1,7 @@
-h1 
-    ' Edit Your community
+h1.text-white.text-center.mt-5
+    ' Edit your community: 
+    = @community.name
 
-= render "form", community: @community
+.h-75.d-flex.justify-content-center.align-items-center
+    .form-bg.rounded
+        = render "form", community: @community

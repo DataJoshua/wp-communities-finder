@@ -1,3 +1,6 @@
-h1 Sign Up with us
+h1.pt-5.text-center.text-white 
+    | Sign Up with us
 
-= render "form", url: "register"
+.container.h-75.d-flex.align-items-center.justify-content-center
+    .form-bg.rounded
+        = render "form", user: @user

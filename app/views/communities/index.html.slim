@@ -1,13 +1,16 @@
 
-h1
-    ' Here you have all our communities available
+h1.text-center.text-white.pt-5
+    ' Find more communities!
 
-- @communities.each do |community|
-    article
-        div
-            = community.name
-        div
-            = community.description
-        div
-            = community.url
-
+.container
+    .communities.mt-5
+        - @communities.each do |community|
+            article.community.p-5.text-white.rounded.box-shadow
+                h1.text-center 
+                    = community.name
+                p
+                    = community.description
+                div
+                    = community.url
+    .pags.my-3
+        = paginate @communities
