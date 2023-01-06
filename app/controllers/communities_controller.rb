@@ -16,6 +16,8 @@ class CommunitiesController < ApplicationController
 
     def new
         @community = Community.new
+        @categories = Category.all
+        authorize! @community
     end
 
     def create
@@ -72,7 +74,7 @@ class CommunitiesController < ApplicationController
     end
 
     def community_params
-        params.require(:community).permit(:name, :description, :url)
+        params.require(:community).permit(:name, :description, :url, :category_id)
     end
 
 end

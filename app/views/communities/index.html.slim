@@ -10,8 +10,8 @@ h1.text-center.text-white.pt-5
                 article.community.p-5.text-white.rounded.box-shadow
                     h1.text-center 
                         = community.name
-                    p
-                        = community.description
+                    button.btn.btn-info.disabled
+                        = community.category.name
         .pags.my-3
             = paginate @communities
     
