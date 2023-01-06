@@ -1,7 +1,7 @@
 .communities{
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
+    display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .community{
@@ -9,7 +9,8 @@
 }
 
 @media (max-width: 1000px) { 
-    .communities{
-        grid-template-columns: 100%;
-    }
+    .responsive-c{
+        flex-direction: column;
+    }    
 }
+

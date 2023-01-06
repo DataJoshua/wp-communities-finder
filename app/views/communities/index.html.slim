@@ -2,15 +2,18 @@
 h1.text-center.text-white.pt-5
     ' Find more communities!
 
-.container
-    .communities.mt-5
-        - @communities.each do |community|
-            article.community.p-5.text-white.rounded.box-shadow
-                h1.text-center 
-                    = community.name
-                p
-                    = community.description
-                div
-                    = community.url
-    .pags.my-3
-        = paginate @communities
+.container.d-flex.justify-content-evenly.mt-5.gap-5.responsive-c
+    div
+       
+        .communities.container
+            - @communities.each do |community|
+                article.community.p-5.text-white.rounded.box-shadow
+                    h1.text-center 
+                        = community.name
+                    p
+                        = community.description
+        .pags.my-3
+            = paginate @communities
+    
+    = render "aside"
+        

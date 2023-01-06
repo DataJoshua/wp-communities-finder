@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
-
+    before_action :authenticate_current_user!, only: %i[new]
     before_action :set_community, only: %i[edit show update destroy]
     before_action ->{authorize! Community}, only: %i[index show]
     before_action ->{authorize! @community}, only: %i[edit update destroy]
@@ -8,12 +8,14 @@ class CommunitiesController < ApplicationController
     end
 
     def index
-        @communities = Community.all.page(params[:page]).per(6)
+        @communities = Community.all
+                                .page(params[:page])
+                                .order(params[:sort])
+                                .per(6)
     end
 
     def new
         @community = Community.new
-        authorize! @community
     end
 
     def create
