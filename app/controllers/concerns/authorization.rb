@@ -8,7 +8,7 @@ module Authorization
     end
     
     def deny_access!
-      flash[:alert] = "You are not authorized"
+      flash[:danger] = "You are not authorized"
       redirect_to root_path
     end
 end

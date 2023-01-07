@@ -26,10 +26,10 @@ class CommunitiesController < ApplicationController
         authorize! @community
 
         if create_community.success? 
-            flash[:notice] = "New community created!"
+            flash[:success] = "New community created!"
             redirect_to @community
         else
-            flash.now[:alert] = "something went wrong!"
+            flash.now[:warning] = "something went wrong!"
             render :new
         end
     end
@@ -39,17 +39,17 @@ class CommunitiesController < ApplicationController
 
     def update
         if update_community.success?
-            flash[:notice] = "community edited!"
+            flash[:success] = "community edited!"
             redirect_to @community
         else
-            flash[:alert] = "something went wrong!"
+            flash[:warning] = "something went wrong!"
             render :edit
         end
     end
 
     def destroy
         destroy_community
-        flash[:notice] = "community deleted!"
+        flash[:success] = "community deleted!"
         redirect_to communities_path
     end
 

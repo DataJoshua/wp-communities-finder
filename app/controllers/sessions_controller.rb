@@ -15,17 +15,17 @@ class SessionsController < ApplicationController
             &.authenticate(user_params[:password])
         if @user
             session[:current_user_id] = @user.id
-            flash[:notice] = "You logged in successfully #{@user.first_name}"
+            flash[:success] = "You logged in successfully #{@user.first_name}"
             redirect_to root_path
         else
-            flash[:alert] = "Something went wrong"
-            render :new
+            flash[:warning] = "Something went wrong"
+            render :new, status: :unprocessable_entity
         end
     end
 
     def destroy
         session[:current_user_id] = nil
-        flash[:alert] = "You logged out"
+        flash[:warning] = "You logged out!"
         redirect_to root_path
     end
 

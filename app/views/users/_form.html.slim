@@ -1,15 +1,4 @@
 = form_with model: user, url: "register", class:"d-flex flex-column gap-3" do |form|
-    
-    - if user.errors.any?
-      #error_explanation.no
-        h2
-            => pluralize(user.errors.count, "error")
-            | prohibited this project from being saved:
-
-        ul
-            - user.errors.each do |error|
-                li
-                    = error.full_message
 
     div
         = form.label :first_name, class: "form-label text-white"

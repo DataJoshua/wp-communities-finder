@@ -20,7 +20,7 @@ module Authentication
     end
 
     def user_not_authenticate
-        flash[:alert] = "You are not logged in!"
+        flash[:warning] = "You are not logged in!"
         redirect_to login_path
     end
 

@@ -13,14 +13,16 @@
   <body>
 
     <%= render "layouts/nav" %>
-    <div>
-      <% flash.each do |type, msg| %>
-        <div class="flash-<%=type%>">
-          <%= msg %>
-        </div>
-      <% end %>
-    </div>
     <div class="main-banner" style="background-image: url('<%= image_url 'hero.png' %>');">
+      <div>
+        <% flash.each do |type, msg| %>
+          <div class="container">
+            <div class="validation-error alert alert-<%= type %> mx-5 my-3">
+              <%= msg %>
+            </div>
+          </div>
+        <% end %>
+      </div>
       <%= yield %>
     </div>
   </body>
