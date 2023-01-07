@@ -1,4 +1,6 @@
 = form_with model: community, class: "form" do |f|
+    - if community.errors.any?
+        h1 There are some mistakes
     .form-group
         = f.label :name, class: "form-label text-white"
         = f.text_field :name, class: "form-control"

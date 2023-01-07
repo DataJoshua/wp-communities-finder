@@ -22,13 +22,14 @@ class CommunitiesController < ApplicationController
 
     def create
         @community = create_community.community
+        @categories = Category.all
         authorize! @community
 
         if create_community.success? 
             flash[:notice] = "New community created!"
             redirect_to @community
         else
-            flash[:alert] = "something went wrong!"
+            flash.now[:alert] = "something went wrong!"
             render :new
         end
     end
