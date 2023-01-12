@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-    has_many :communities, dependent: :destroy
+  has_many :communities, dependent: :destroy
 
-    validates :name, presence: true
+  validates :name, presence: true
 end

@@ -43,7 +43,9 @@
     background-size: cover;
     background-position: left;
     height: 100vh;
+    position: relative;
     overflow-y: scroll;
+    z-index: 0;
     &::-webkit-scrollbar{
         display: none;
     }

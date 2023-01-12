@@ -1,7 +1,5 @@
 class HomeController < ApplicationController
-    
-    before_action :skip_verify_authorized!
+  before_action :skip_verify_authorized!
 
-    def index
-    end
+  def index; end
 end

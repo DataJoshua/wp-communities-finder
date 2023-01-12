@@ -1,13 +1,13 @@
 module Communities
   class Destroy
     class Execute
-        include Interactor
+      include Interactor
 
-        delegate :community, to: :context
+      delegate :community, to: :context
 
-        def call
-            context.fail!(error: "Invalid") unless community.destroy
-        end
+      def call
+        context.fail!(error: 'Invalid') unless community.destroy
+      end
     end
   end
 end

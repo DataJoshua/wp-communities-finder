@@ -1,0 +1,7 @@
+article.community.p-5.rounded.box-shadow
+    h1.mt-3 
+        = community.name
+    p.mt-3
+        = community.description
+    div
+        = link_to "see more", community_path(community), class: "btn btn-primary"

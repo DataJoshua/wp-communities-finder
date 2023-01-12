@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  
-  before_action ->{authorize! User}
+  before_action -> { authorize! User }
 
   def new
     @user = User.new
@@ -9,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "User created successfully"
+      flash[:success] = 'User created successfully'
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
@@ -21,5 +20,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :nickname, :password, :email)
   end
-
 end

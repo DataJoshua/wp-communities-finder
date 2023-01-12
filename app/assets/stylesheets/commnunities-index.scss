@@ -1,7 +1,7 @@
 .communities{
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 15px;
 }
 
 .community{
@@ -11,6 +11,9 @@
 @media (max-width: 1000px) { 
     .responsive-c{
         flex-direction: column;
-    }    
+    }
+    .communities{
+        grid-template-columns: auto;
+    }
 }
 
