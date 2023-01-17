@@ -1,15 +1,15 @@
 div
-    = search_form_for query, class: "d-flex justify-content-center align-items-center gap-3" do |f| 
-        = f.label :name_cont
+    = search_form_for query, class: "d-flex justify-content-center align-items-center gap-3" do |f|
+        = f.label :name_cont, class:  "text-white"
         = f.search_field :name_cont, class: "form-control w-25"
-        
+
         .dropdown
-            button.btn.dropdown-toggle[type="button" data-bs-toggle="dropdown" aria-expanded="false"]
+            button.btn.dropdown-toggle.text-white[type="button" data-bs-toggle="dropdown" aria-expanded="false"]
                 | Find by categories
             ul.dropdown-menu
                 - @categories.each do |category|
                     li
-                        = link_to category.name, category_path(category), class: "dropdown-item"        
+                        = link_to category.name, category_path(category), class: "dropdown-item"
 
         = f.submit "search", class: "btn btn-primary"
 

@@ -34,7 +34,7 @@
     border: 2px solid #2ea043;
     transition: all .5s ease;
 }
-  
+
 .josh-btn:hover{
     background: transparent;
 }
@@ -53,24 +53,28 @@
 
 textarea{
     max-height: 200px;
-    min-height: 100px; 
+    min-height: 100px;
     padding: 10px 5px;
+}
+
+body{
+  background: #111;
 }
 
 .form-bg{
     background-color: rgba(100, 100, 100, 0.541);
-    padding: 50px; 
+    padding: 50px;
 }
 
 // `sm` applies to x-small devices (portrait phones, less than 576px)
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
     .main-banner{
         background-position: center;
     }
 }
 
 // `md` applies to small devices (landscape phones, less than 768px)
-@media (max-width: 1000px) { 
+@media (max-width: 1000px) {
     .main-banner{
         background-position: center;
     }
