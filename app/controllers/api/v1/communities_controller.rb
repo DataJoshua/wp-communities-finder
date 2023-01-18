@@ -1,7 +1,7 @@
 module Api
   module V1
     class CommunitiesController < Api::ApplicationController
-      before_action :authenticate_user!, only: %i[create]
+      before_action :authenticate_user!, only: %i[create destroy]
       before_action :set_community, only: %i[show destroy]
 
       def index
@@ -24,10 +24,12 @@ module Api
       end
 
       def destroy
-        authorize! @community
-
-        @community.destroy
-        render json: { community: @community, msg: "Community Destroyed succesfully" }
+        if @community.user == current_user
+          @community.destroy
+          render json: { community: @community, msg: "Community Destroyed succesfully" }
+        else
+          render json: { msg:  "you are not allowed" }
+        end
       end
 
       private
