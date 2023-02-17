@@ -8,11 +8,28 @@
     background: rgba(204, 204, 204, 0.507);
 }
 
+.responsive-seach{
+  width: 75%;
+}
+
+@media (min-width: 1000px){
+  .responsive-seach{
+    width: 45%;
+  }
+}
+
+@media (min-width: 1200px){
+  .responsive-seach{
+    width: 25%;
+  }
+}
+
 @media (max-width: 1000px) {
     .responsive-c{
         flex-direction: column;
     }
     .communities{
         grid-template-columns: auto;
+        place-items: center
     }
 }

@@ -14,6 +14,8 @@ gem "dotenv-rails"
 
 gem 'ransack'
 
+gem "decent_exposure"
+
 gem 'kaminari'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'

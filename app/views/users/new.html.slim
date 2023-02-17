@@ -5,9 +5,9 @@
             .validation-error.alert.alert-warning.mx-5[style="animation-delay:#{index * 0.3}s"]
                 = error.full_message
 
-h1.pt-5.text-center.text-white 
+h1.pt-5.text-center.text-white
     | Sign Up with us
 
 .container.h-75.d-flex.align-items-center.justify-content-center
-    .form-bg.rounded
+    .form-bg.rounded.jc-third
         = render "form", user: @user

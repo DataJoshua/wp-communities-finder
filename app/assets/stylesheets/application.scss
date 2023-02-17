@@ -17,6 +17,8 @@
 @import "pagination";
 @import "nav";
 @import "validations-handler";
+@import "colors";
+@import "show";
 
 .flash-notice{
     color: green;
@@ -27,11 +29,12 @@
 
 .josh-btn{
     padding: 5px 20px;
-    background: #2ea043;
+    text-decoration: none;
+    background: #2C3333;
     color: #fff;
     border-radius: 10px;
     font-size: 18px;
-    border: 2px solid #2ea043;
+    border: 2px solid #2C3333;
     transition: all .5s ease;
 }
 
@@ -57,12 +60,7 @@ textarea{
     padding: 10px 5px;
 }
 
-body{
-  background: #111;
-}
-
 .form-bg{
-    background-color: rgba(100, 100, 100, 0.541);
     padding: 50px;
 }
 

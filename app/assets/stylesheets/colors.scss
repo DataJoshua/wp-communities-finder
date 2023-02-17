@@ -1,0 +1,33 @@
+
+.jc-primary{
+  background-color: #2C3333;
+}
+
+.jc-secondary{
+  background-color: #395B64;
+}
+
+.jc-third{
+  background-color: #A5C9CA;
+}
+
+.jc-light{
+  background-color: #E7F6F2;
+}
+
+.bg-main{
+  background: linear-gradient(to bottom, #2C3333, #395B64);
+}
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

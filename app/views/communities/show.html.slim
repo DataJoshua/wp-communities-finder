@@ -1,10 +1,12 @@
-h1 
-    ' Community called:
+.s-container
+  img[src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png" class="card-img s-img"]
+  .filter-made
+  h1.s-text.p-3.rounded
     = @community.name
 
 div
-    p 
+    p
         ' find more
         = @community.description
 
-= link_to "Delete This community", community_path(@community), data:{ turbo_method: :delete } 
+= link_to "Delete This community", community_path(@community), data:{ turbo_method: :delete }
