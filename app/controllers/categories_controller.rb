@@ -2,6 +2,8 @@ class CategoriesController < ApplicationController
   before_action -> { authorize! Category }
   before_action :set_categories
 
+  expose :categories, ->{ Category.all }
+
   def index
   end
 

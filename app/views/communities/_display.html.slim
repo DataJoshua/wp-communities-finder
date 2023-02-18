@@ -1,12 +1,12 @@
 div
-    = search_form_for query, class: "d-flex justify-content-center align-items-center flex-column gap-3" do |f|
+    = search_form_for q, class: "d-flex justify-content-center align-items-center flex-column gap-3" do |f|
         = f.search_field :name_cont, class: "form-control responsive-seach", placeholder: "Search a community!"
         div.d-flex.gap-2
           .dropdown
               button.btn.dropdown-toggle.text-white[type="button" data-bs-toggle="dropdown" aria-expanded="false"]
                   | Find by categories
               ul.dropdown-menu
-                  - @categories.each do |category|
+                  - categories.each do |category|
                       li
                           = link_to category.name, category_path(category), class: "dropdown-item"
 
