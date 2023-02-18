@@ -22,10 +22,10 @@ class CommunitiesController < ApplicationController
   end
 
   def create
-    result = create_community.community
-    authorize! community
+    c = create_community.community
+    authorize! c
 
-    if result.success?
+    if create_community.success?
       flash[:success] = 'New community created!'
       redirect_to community
     else
@@ -70,7 +70,7 @@ class CommunitiesController < ApplicationController
 
   def create_community
     @create_community ||=
-        Communities::Create.call(community_params:, user: current_user)
+        Communities::Create.call(community_params: community_params, user: current_user)
   end
 
   def set_community

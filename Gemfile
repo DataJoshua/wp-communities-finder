@@ -8,6 +8,8 @@ gem 'rails', '~> 7.0.4'
 
 gem "jwt"
 
+gem "faker"
+
 gem 'rspec-rails'
 
 gem "dotenv-rails"
