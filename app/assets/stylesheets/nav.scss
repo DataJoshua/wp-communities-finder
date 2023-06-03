@@ -4,7 +4,6 @@
     border-radius: 20px;
     height: 50px;
     padding: 10px;
-    background: rgba(221, 221, 221, 0.705);
     position: relative;
 }
 
@@ -17,7 +16,7 @@
     height: 3px;
     background: #111;
 }
-  
+
 #toggle-bar-icon::before{
     content: '';
     position: absolute;
@@ -27,7 +26,7 @@
     border-radius: 5px;
     background: #111;
 }
-  
+
 #toggle-bar-icon::after{
     content: '';
     border-radius: 5px;
@@ -37,16 +36,16 @@
     height: 3px;
     background: #111;
 }
-  
+
 #toggle-bar-icon:hover{
     animation-name: rotate;
     animation-duration: .7s;
     animation-fill-mode:forwards;
     animation-iteration-count: 2;
     animation-direction: alternate;
-   
+
 }
-  
+
 @keyframes rotate{
     from{
         transform: rotate(0)

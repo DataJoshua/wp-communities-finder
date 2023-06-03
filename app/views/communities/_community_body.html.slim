@@ -1,7 +1,8 @@
-article.community.p-5.rounded.box-shadow
-    h1.mt-3 
+article.card[style="width: 18rem;" class="jc-light"]
+    img[src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png" alt="image" class="card-img-top"]
+    .card-body
+      h5.card-title
         = community.name
-    p.mt-3
+      p.card-text
         = community.description
-    div
-        = link_to "see more", community_path(community), class: "btn btn-primary"
+      = link_to "show", community, class: "josh-btn"

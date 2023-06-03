@@ -1,8 +1,11 @@
 class CategoriesController < ApplicationController
   before_action -> { authorize! Category }
-  before_action :set_communities
+  before_action :set_categories
 
-  def index; end
+  expose :categories, ->{ Category.all }
+
+  def index
+  end
 
   def show
     @category = Category.find(params[:id])
@@ -14,7 +17,8 @@ class CategoriesController < ApplicationController
 
   private
 
-  def set_communities
+  def set_categories
     @categories = Category.all
   end
+
 end
