@@ -13,7 +13,7 @@ module Communities
     private
 
     def community
-      @community ||= Community.new(community_params.merge({ user: }))
+      @community ||= Community.new(community_params.merge({ user: user }))
     end
   end
 end

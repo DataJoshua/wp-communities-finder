@@ -15,16 +15,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def login
-
-    if authenticate_user.success?
-      render json: { authentication_token: authenticate_user.authentication_token, msg: "you logged in!" }
-    else
-      render json: { msg: "Bad credentials" }
-    end 
-
-  end
-
   private
 
   def user_params

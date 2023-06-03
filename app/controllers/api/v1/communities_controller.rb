@@ -24,12 +24,16 @@ module Api
       end
 
       def destroy
-        if @community.user == current_user
-          @community.destroy
+        if  @community.destroy
           render json: { community: @community, msg: "Community Destroyed succesfully" }
         else
-          render json: { msg:  "you are not allowed" }
+          render json: { msg:  "something went wrong" }
         end
+      end
+
+      # TODO: implement edit
+      def edit
+
       end
 
       private
@@ -45,7 +49,6 @@ module Api
       def create_community
         @create_community ||= Communities::Create.call(community_params: community_params, user: current_user)
       end
-
     end
   end
 end

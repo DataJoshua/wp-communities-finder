@@ -1,5 +1,6 @@
-
-h1.text-center.m-5
-    = @category.name
-
-= render "communities/display", communities: @communities, query: @q, categories: @categories
+= turbo_frame_tag "categories"
+    h1.text-center.m-5
+        = @category.name
+    div class="josh-btn"
+        = link_to "all", communities_path
+    = render "communities/display", communities: @communities, query: @q, categories: @categories

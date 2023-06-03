@@ -1,30 +1,26 @@
-.jumbotron.text-white.my-5
-  .container
-    h1 Share or Join a Community!
-    p Welcome to our community platform where you can discover and join new WhatsApp groups or create and publish your own! Our goal is to provide a space for people to connect with others who share similar interests or goals.
-    .text-center.d-flex.gap-3
-      button.josh-btn(href="#") Discover Groups
-      button.josh-btn(href="#") Create Your Own
+div class="relative bg-gradient-to-br from-gray-600 to-gray-900"
+  div class="z-20 relative max-w-sm sm:max-w-3xl m-auto py-[80px] flex flex-col justify-center items-center gap-[25px]"
+    h1 class="text-4xl font-bold text-center text-white" 
+      | Find a community:
+    = search_form_for @q, class: "max-w-sm flex gap-3 justify-center" do |f|
+        = f.search_field :name_cont, class: "rounded"
+        = f.submit class: button_class
+    div class="flex gap-4 justify-center"
+      div
+        = link_to "Create your own Community", new_community_path, class: button_class
+div class="relative bg-slate-800 py-[3rem] flex flex-col gap-[25px] justify-center items-center"
+  div class="absolute bottom-0 right-0 hidden xl:block"
+    = image_tag("astronaut.png", width: 500)
+  p class="max-w-sm sm:max-w-3xl text-center text-xl text-white"
+    | Welcome to our community platform where you can discover and join new WhatsApp groups or create and publish your own! Our goal is to provide a space for people to connect with others who share similar interests or goals.
 
-= search_form_for @q do |form|
-  div
-    = form.label :name_cont
-    = form.search_field :name_cont
-  div
-    = form.submit
-
-
-.container-fluid.bg-white.py-5
-  .row
-    .col-md-4
+  div class="max-w-sm sm:max-w-3xl m-auto flex flex-col sm:flex-row justify-center gap-4"
+    div class="bg-slate-100 p-4 border-white border rounded"
       h2 Discover New Communities
       p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, beatae.
-      a.btn.btn-secondary(href="#") Find Groups
-    .col-md-4
+    div class="bg-slate-100 p-4 border-white border rounded"
       h2 Create Your Own Group
       p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, beatae.
-      a.btn.btn-secondary(href="#") Create Group
-    .col-md-4
+    div class="bg-slate-100 p-4 border-white border rounded"
       h2 Connect with Others
       p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, beatae.
-      a.btn.btn-secondary(href="#") Join a Group

@@ -9,7 +9,7 @@ class CommunitiesController < ApplicationController
                    .per(4) }
 
   before_action :authenticate_current_user!, only: %i[new create]
-  before_action -> { authorize! Community }, only: %i[index show]
+  before_action -> { authorize! Community }, only: %i[index show new create]
   before_action -> { authorize! community }, only: %i[edit update destroy]
 
   def show; end
@@ -18,13 +18,9 @@ class CommunitiesController < ApplicationController
   end
 
   def new
-    authorize! community
   end
 
   def create
-    c = create_community.community
-    authorize! c
-
     if create_community.success?
       flash[:success] = 'New community created!'
       redirect_to community
