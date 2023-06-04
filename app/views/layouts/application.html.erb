@@ -11,11 +11,9 @@
   </head>
 
   <body>
-
     <%= render "layouts/nav" %>
-    <div class="main-banner bg-main">
-      <%= render "layouts/flash" %>
-      <%= yield %>
-    </div>
+    <%= render "layouts/flash" %>
+    <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>

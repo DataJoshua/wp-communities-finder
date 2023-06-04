@@ -26,7 +26,7 @@ class CommunitiesController < ApplicationController
       redirect_to community
     else
       flash.now[:warning] = 'something went wrong!'
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -56,7 +56,7 @@ class CommunitiesController < ApplicationController
   end
 
   def set_ransack
-    Community.all.ransack(params[:q])
+    Community.all.order("id DESC").ransack(params[:q])
   end
 
   def destroy_community

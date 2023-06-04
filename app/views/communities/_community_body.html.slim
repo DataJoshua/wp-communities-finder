@@ -5,4 +5,9 @@ article.card[style="width: 18rem;" class="jc-light"]
         = community.name
       p.card-text
         = community.description
-      = link_to "show", community, class: "josh-btn"
+      div class="flex gap-4"
+        = link_to "show", community, class: "josh-btn"
+        - if allowed_to?(:edit?, community)
+          = link_to "edit", edit_community_path(community)
+        - if allowed_to?(:destroy?, community)
+          = link_to "delete", community_path(community), data: { turbo_method: :delete }
