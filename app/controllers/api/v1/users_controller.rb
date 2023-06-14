@@ -1,6 +1,7 @@
 module Api
   module V1
-    class UsersController < Api::V1::ApplicationController
+    class UsersController < Api::V1::BaseController
+      before_action :skip_verify_authorized!
 
       def create
         @user = create_user.user

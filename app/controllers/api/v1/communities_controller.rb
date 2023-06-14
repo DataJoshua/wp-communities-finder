@@ -1,7 +1,7 @@
 module Api
   module V1
-    class CommunitiesController < Api::V1::ApplicationController
-      before_action :authenticate_user!, only: %i[create destroy]
+    class CommunitiesController < Api::V1::BaseController
+      before_action :authenticate_user!, only: %i[create destroy update]
       before_action :set_community, only: %i[show destroy update]
 
       before_action ->{ authorize! Community }, only: %i[index create show]
@@ -19,7 +19,7 @@ module Api
         @community = create_community.community
 
         if create_community.success?
-          render json: { community: @community }
+          render json: { community: @community }  
         else
           render json: { msg: create_community.error }
         end

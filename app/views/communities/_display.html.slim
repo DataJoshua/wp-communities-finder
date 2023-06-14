@@ -1,20 +1,20 @@
-= search_form_for query, class: "" do |f|
-    = f.search_field :name_cont, class: "form-control responsive-seach", placeholder: "Search a community!"
-    div.d-flex.gap-2
-        .dropdown
-            button.btn.dropdown-toggle.text-white[type="button" data-bs-toggle="dropdown" aria-expanded="false"]
-                | Find by categories
-            ul.dropdown-menu.dropdown-style
-                - categories.each do |category|
-                    li
-                        = link_to category.name, category_path(category), class: "dropdown-item"
-        = f.submit "search", class: "josh-btn"
+= search_form_for query, class: "flex gap-3" do |f|
+    = f.search_field :name_cont, class: "rounded px-5 py-3", placeholder: "Search a community!"
+    = f.submit "search", class: "bg-blue-500 hover:cursor-pointer text-white rounded py-3 px-2"
+div class="relative flex-col"
+    button class="text-white my-3" id="category-btn"
+        | Find By Categories       
+    div class="rounded absolute max-h-[350px] overflow-y-scroll bg-slate-300 top-100 w-[200%] right-[-50%]"
+        ul class="flex flex-col"
+            - categories.each do |category|
+                li
+                    = link_to category.name, category_path(category), class: "block hover:bg-slate-200 py-2 px-[15px]"
 
-.container.d-flex.justify-content-center.mt-5.gap-5.responsive-c
-    div
-        .communities.container
-            - communities.each do |community|
-                = render "communities/community_body", community: community
 
-        .pags.py-3
-            = paginate communities
+div
+    .communities.container
+        - communities.each do |community|
+            = render "communities/community_body", community: community
+
+    .pags.py-3
+        = paginate communities

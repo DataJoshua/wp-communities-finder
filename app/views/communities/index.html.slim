@@ -1,5 +1,6 @@
 div class="bg-slate-800"
     = turbo_frame_tag "categories" do
-        h1
-            ' Find more communities!
-        = render "display", query: q
+        div class="flex justify-center items-center flex-col pt-5"
+            h1 class="py-4 text-4xl text-white"
+                ' Find more communities!
+            = render "display", query: q

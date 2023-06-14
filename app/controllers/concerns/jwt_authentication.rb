@@ -1,10 +1,6 @@
 module JwtAuthentication
   extend ActiveSupport::Concern
 
-  included do
-    helper_method :current_user
-  end
-
   def current_user
     return if authentication_token.blank?
 
@@ -26,7 +22,7 @@ module JwtAuthentication
   def authenticate_user!
     return if current_user.present?
 
-    render json: { msg: "Not logged In!" }
+    render json: { msg: "Not logged Isn!" }
   end
 
 end

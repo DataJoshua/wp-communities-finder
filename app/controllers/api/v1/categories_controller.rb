@@ -1,6 +1,9 @@
 module Api
   module V1
-    class CategoriesController < Api::V1::ApplicationController
+    class CategoriesController < Api::V1::BaseController
+      before_action :set_category, only: %i[show]
+      before_action -> { authorize! Category }
+
       def index
         @categories = Category.all
 
@@ -8,9 +11,13 @@ module Api
       end
 
       def show 
-        @category = Category.find(params[:id])
-
         render json: { category: @category }
+      end
+
+      private
+
+      def set_category
+        @category ||= Category.find(params[:id])
       end
     end
   end
