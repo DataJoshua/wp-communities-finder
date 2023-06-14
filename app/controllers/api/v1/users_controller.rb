@@ -1,6 +1,6 @@
 module Api
   module V1
-    class UsersController < Api::ApplicationController
+    class UsersController < Api::V1::ApplicationController
 
       def create
         @user = create_user.user
@@ -15,7 +15,7 @@ module Api
         if authenticate_user.success?
           render json: { jwt_token: authenticate_user.authentication_token }
         else
-          render json: { msg: "Invalid credentials" }
+          render json: authenticate_user.error
         end
       end
 
@@ -29,8 +29,12 @@ module Api
         params.require(:user).permit(:first_name, :nickname, :email, :password)
       end
 
+      def auth_params
+        params.permit(:email, :password)
+      end
+
       def authenticate_user
-        @authenticate_user ||= Users::GenerateToken.call(credentials: user_params)
+        @authenticate_user ||= Users::GenerateToken.call(credentials: auth_params)
       end
 
     end

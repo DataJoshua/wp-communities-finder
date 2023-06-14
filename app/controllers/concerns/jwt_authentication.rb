@@ -1,6 +1,10 @@
 module JwtAuthentication
   extend ActiveSupport::Concern
 
+  included do
+    helper_method :current_user
+  end
+
   def current_user
     return if authentication_token.blank?
 

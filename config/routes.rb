@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-      resources :communities, only: %i[index create show destroy]
+      resources :communities
+      resources :categories, only: %i[index show]
       resources :users, only: %i[create]
       post "/login", to: "users#login"
     end

@@ -4,10 +4,10 @@ module Authorization
   included do
     verify_authorized
 
-    rescue_from ActionPolicy::Unauthorized, with: :deny_access!
+    rescue_from ActionPolicy::Unauthorized, with: :deny!
   end
 
-  def deny_access!
+  def deny!
     flash[:danger] = 'You are not authorized'
     redirect_to root_path
   end

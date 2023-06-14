@@ -1,12 +1,14 @@
 module Api
   module V1
-    class CommunitiesController < Api::ApplicationController
+    class CommunitiesController < Api::V1::ApplicationController
       before_action :authenticate_user!, only: %i[create destroy]
-      before_action :set_community, only: %i[show destroy]
+      before_action :set_community, only: %i[show destroy update]
+
+      before_action ->{ authorize! Community }, only: %i[index create show]
 
       def index
         @communities = Community.all
-        render json: {communities: @communities}
+        render json: @communities 
       end
 
       def show
@@ -24,6 +26,7 @@ module Api
       end
 
       def destroy
+        authorize! @community
         if  @community.destroy
           render json: { community: @community, msg: "Community Destroyed succesfully" }
         else
@@ -31,9 +34,14 @@ module Api
         end
       end
 
-      # TODO: implement edit
-      def edit
-
+      def update
+        authorize! @community
+        
+        if update_community.success?
+          render json: @community
+        else
+          render json: { msg: update_community.error }
+        end
       end
 
       private
@@ -48,6 +56,10 @@ module Api
 
       def create_community
         @create_community ||= Communities::Create.call(community_params: community_params, user: current_user)
+      end
+
+      def update_community
+        @update_community ||= Communities::Update.call(community: @community, community_params: community_params)
       end
     end
   end
