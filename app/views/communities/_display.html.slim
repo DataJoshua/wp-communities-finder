@@ -9,10 +9,8 @@ div class="relative flex-col"
             - categories.each do |category|
                 li
                     = link_to category.name, category_path(category), class: "block hover:bg-slate-200 py-2 px-[15px]"
-
-
-div
-    .communities.container
+div class="mt-10"
+    div class="flex flex-wrap gap-4"
         - communities.each do |community|
             = render "communities/community_body", community: community
 

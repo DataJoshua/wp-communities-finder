@@ -5,8 +5,6 @@ export default class extends Controller {
     this._dropdown = document.getElementById("categories-dropdown");
   }
   dropdown(){
-    console.log("some");
-
     this._dropdown.classList.toggle("active");
   }
 }

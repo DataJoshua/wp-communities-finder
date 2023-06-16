@@ -3,9 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  min-height: 100vh;
+}
+
 * {
   font-family: 'Montserrat', sans-serif;
   font-family: 'Signika Negative', sans-serif;
+  box-sizing: border-box;
 }
 
 textarea {

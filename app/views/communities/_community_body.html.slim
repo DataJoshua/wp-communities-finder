@@ -1,13 +1,11 @@
-article.card[style="width: 18rem;" class="jc-light"]
-    img[src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png" alt="image" class="card-img-top"]
-    .card-body
-      h5.card-title
-        = community.name
-      p.card-text
-        = community.description
-      div class="flex gap-4"
-        = link_to "show", community, class: "josh-btn"
-        - if allowed_to?(:edit?, community)
-          = link_to "edit", edit_community_path(community)
-        - if allowed_to?(:destroy?, community)
-          = link_to "delete", community_path(community), data: { turbo_method: :delete }
+article class="bg-slate-100 rounded p-4 flex flex-col gap-3"
+  h2 class="text-center text-3xl"
+    = community.name
+  p class=""
+    = community.description
+  div
+    = link_to "show", community, class: button_class
+    - if allowed_to?(:edit?, community)
+      = link_to "edit", edit_community_path(community)
+    - if allowed_to?(:destroy?, community)
+      = link_to "delete", community_path(community), data: { turbo_method: :delete }
