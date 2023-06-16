@@ -4,7 +4,7 @@ module Api
       before_action :authenticate_user!, only: %i[create destroy update]
       before_action :set_community, only: %i[show destroy update]
 
-      before_action ->{ authorize! Community }, only: %i[index create show]
+      before_action ->{ authorize! Community }, only: %i[index show]
 
       def index
         @communities = Community.all
