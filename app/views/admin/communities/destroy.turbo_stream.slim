@@ -1,0 +1,4 @@
+- if @result 
+  = turbo_stream.remove @community
+- else 
+  = turbo_stream.prepend "admin-commnunities", partial: "error", locals: { err: "Something went wrong" }

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :communities
+  resources :categories, only: %i[index show]
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
@@ -22,5 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, only: %i[index show]
+  namespace :admin, module: "admin" do
+    resources :communities, only: %i[index destroy]
+  end
 end
