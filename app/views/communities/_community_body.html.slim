@@ -1,11 +1,11 @@
-article class="bg-slate-100 rounded p-4 flex flex-col gap-3"
+article class="bg-slate-100 rounded p-4 flex flex-col gap-3 w-full"
   h2 class="text-center text-3xl"
     = community.name
   p class=""
     = community.description
-  div
-    = link_to "show", community, class: button_class
+  div class="mt-3 flex gap-3" 
+    = link_to "see more", community, class: button_class
     - if allowed_to?(:edit?, community)
-      = link_to "edit", edit_community_path(community)
+      = link_to "edit", edit_community_path(community), class: button_class
     - if allowed_to?(:destroy?, community)
-      = link_to "delete", community_path(community), data: { turbo_method: :delete }
+      = link_to "delete", community_path(community), data: { turbo_method: :delete }, class: button_class

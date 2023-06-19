@@ -11,7 +11,6 @@ module Admin
     def destroy
       @community = Community.find(params[:id])
 
-      
       @result = destroy_community.success?
       
       respond_to do |format|

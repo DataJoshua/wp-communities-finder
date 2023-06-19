@@ -2,7 +2,7 @@
     = f.search_field :name_cont, class: "rounded px-5 py-3", placeholder: "Search a community!"
     = f.submit "search", class: "bg-blue-500 hover:cursor-pointer text-white rounded py-3 px-2"
 div class="relative flex-col"
-    button class="text-white my-3" data-controller="communities" id="category-btn" data-action="communities#dropdown"
+    button class="text-white my-3" data-controller="communities" id="category-btn" data-action="click->communities#dropdown"
         | Find By Categories
     div id="categories-dropdown" class="hidden rounded absolute max-h-[350px] z-20 overflow-y-scroll bg-white top-100 w-[200%] right-[-50%]"
         ul class="flex flex-col"
@@ -10,7 +10,7 @@ div class="relative flex-col"
                 li
                     = link_to category.name, category_path(category), class: "block hover:bg-slate-100 py-2 px-[15px]"
 div class="mt-10"
-    div class="flex flex-wrap gap-4"
+    div class="grid gap-3 grid-cols-1 px-5 md:grid-cols-2 md:px-[100px] lg:grid-cols-3 xl:grid-cols-4"
         - communities.each do |community|
             = render "communities/community_body", community: community
 

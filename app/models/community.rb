@@ -7,4 +7,6 @@ class Community < ApplicationRecord
   validates :url, presence: true
   validates :user, presence: true
   validates :category, presence: true
+
+  validates :description, length: { minimum: 10, maximum: 500 }
 end
