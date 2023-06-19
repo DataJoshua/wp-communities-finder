@@ -25,7 +25,7 @@ class CommunitiesController < ApplicationController
       flash[:success] = 'New community created!'
       redirect_to community
     else
-      flash.now[:warning] = 'something went wrong!'
+      flash.now[:warning] = create_community.error
       render :new, status: :unprocessable_entity
     end
   end
@@ -74,6 +74,6 @@ class CommunitiesController < ApplicationController
   end
 
   def community_params
-    params.require(:community).permit(:name, :description, :url, :category_id)
+    params.require(:community).permit(:name, :description, :url, :category_id, :social)
   end
 end

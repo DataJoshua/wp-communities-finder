@@ -51,7 +51,7 @@ module Api
       end
 
       def community_params
-        params.require(:community).permit(:name, :description, :url, :category_id)
+        params.require(:community).permit(:name, :description, :url, :category_id, :social)
       end
 
       def create_community

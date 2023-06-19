@@ -11,14 +11,19 @@ div class="text-white max-w-xl m-auto flex flex-col my-5 h-full justify-center g
           | Category
         th class="border"
           | Created
+        th class="border"
+          | Social Network
     tbody class="border"
       tr
         td class="border text-center"
           = community.category.name
         td class="border text-center"
           = time_ago_in_words(community.created_at) + " ago"
-    
+        td class="border text-center"
+          = community.social
   div class="flex gap-3 flex-row-reverse"
     - if allowed_to?(:destroy?, community)
       = link_to "Delete This community", community_path(community), data:{ turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "bg-red-500 py-3 px-4 rounded-lg inline-block"
+    - if allowed_to?(:edit?, community)
+      = link_to "Edit This community", edit_community_path(community), class: "bg-indigo-500 py-3 px-4 rounded-lg inline-block"
     = link_to "Join", community.url, class: "bg-blue-500 py-3 px-4 rounded-lg inline-block", target: "_blank"

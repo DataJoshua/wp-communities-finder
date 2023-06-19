@@ -1,4 +1,6 @@
 class Community < ApplicationRecord
+  extend Enumerize
+
   belongs_to :user
   belongs_to :category
 
@@ -8,5 +10,10 @@ class Community < ApplicationRecord
   validates :user, presence: true
   validates :category, presence: true
 
-  validates :description, length: { minimum: 10, maximum: 500 }
+  validates :description, length: { minimum: 100, maximum: 500 }
+
+  SOCIALS = %i[WhatsApp Telegram].freeze
+
+  enumerize :social, in: SOCIALS, scope: :shallow, predicates: true 
+  validates :social, presence: true
 end

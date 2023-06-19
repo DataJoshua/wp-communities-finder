@@ -7,7 +7,7 @@ module Communities
     def call
       context.community = community
 
-      context.fail!(error: 'Invalid') unless community.save
+      context.fail!(error: community.errors.full_messages) unless community.save
     end
 
     private
