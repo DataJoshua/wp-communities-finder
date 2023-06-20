@@ -14,5 +14,5 @@ div class="mt-10"
         - communities.each do |community|
             = render "communities/community_body", community: community
 
-    .pags.py-3
+    div class="flex justify-center my-[50px] text-white text-xl"
         = paginate communities

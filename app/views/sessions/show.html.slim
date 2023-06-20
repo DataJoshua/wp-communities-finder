@@ -1,6 +1,9 @@
-h1 name
-p 
-    = current_user.email
+h1 class="text-center text-white text-2xl underline my-3    "
+    = current_user.first_name
+div class="mt-10"
+    div class="grid gap-3 grid-cols-1 px-5 md:grid-cols-2 md:px-[100px] lg:grid-cols-3 xl:grid-cols-4"
+        - current_user.communities.each do |c|
+            = render "communities/community_body", community: c
 
-div
-    = link_to "log out", login_path, data: { turbo_method: :delete}
+div class="flex justify-center"
+    = link_to "log out", login_path, data: { turbo_method: :delete}, class: "#{button_class} bg-red-600 hover:bg-red-500"

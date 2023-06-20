@@ -8,7 +8,7 @@ class CommunitiesController < ApplicationController
                    .order(params[:sort])
                    .per(4) }
 
-  before_action :authenticate_current_user!, only: %i[new create]
+  before_action :authenticate_current_user!, only: %i[new create update edit destroy]
   before_action -> { authorize! Community }, only: %i[index show new create]
   before_action -> { authorize! community }, only: %i[edit update destroy]
 
@@ -61,7 +61,7 @@ class CommunitiesController < ApplicationController
 
   def destroy_community
     @destroy_community ||=
-        Communities::Destroy.call(community: @community)
+        Communities::Destroy.call(community: community)
   end
 
   def create_community
