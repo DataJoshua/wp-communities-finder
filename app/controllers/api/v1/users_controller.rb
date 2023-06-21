@@ -2,6 +2,7 @@ module Api
   module V1
     class UsersController < Api::V1::BaseController
       before_action :skip_verify_authorized!
+      before_action :authenticate_user!, only: %i[show]
 
       def create
         @user = create_user.user
@@ -18,6 +19,10 @@ module Api
         else
           render json: authenticate_user.error
         end
+      end
+
+      def show
+        render json: { user: current_user, communities: current_user.communities}
       end
 
       private

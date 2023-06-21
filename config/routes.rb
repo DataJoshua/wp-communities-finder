@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       resources :categories, only: %i[index show]
       resources :users, only: %i[create]
       post "/login", to: "users#login"
+      get "/dashboard", to: "users#show"
     end
   end
 
