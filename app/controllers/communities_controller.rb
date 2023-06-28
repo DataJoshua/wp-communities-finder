@@ -6,7 +6,7 @@ class CommunitiesController < ApplicationController
   expose :communities, ->{ q.result
                    .page(params[:page])
                    .order(params[:sort])
-                   .per(4) }
+                   .per(12) }
 
   before_action :authenticate_current_user!, only: %i[new create update edit destroy]
   before_action -> { authorize! Community }, only: %i[index show new create]
