@@ -22,7 +22,7 @@ module JwtAuthentication
   def authenticate_user!
     return if current_user.present?
 
-    render json: { msg: "Not logged In!" }
+    render json: { msg: "Not logged Isn!" }
   end
 
 end

@@ -18,11 +18,11 @@ class CommunityPolicy < ApplicationPolicy
   end
 
   def edit?
-    update?
+    user.present? && owner?
   end
 
   def update?
-    user.present? && owner?
+    edit?
   end
 
   def destroy?

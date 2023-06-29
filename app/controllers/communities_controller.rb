@@ -8,8 +8,8 @@ class CommunitiesController < ApplicationController
                    .order(params[:sort])
                    .per(4) }
 
-  before_action :authenticate_current_user!, only: %i[new create]
-  before_action -> { authorize! Community }, only: %i[index show]
+  before_action :authenticate_current_user!, only: %i[new create update edit destroy]
+  before_action -> { authorize! Community }, only: %i[index show new create]
   before_action -> { authorize! community }, only: %i[edit update destroy]
 
   def show; end
@@ -18,19 +18,15 @@ class CommunitiesController < ApplicationController
   end
 
   def new
-    authorize! community
   end
 
   def create
-    c = create_community.community
-    authorize! c
-
     if create_community.success?
       flash[:success] = 'New community created!'
       redirect_to community
     else
-      flash.now[:warning] = 'something went wrong!'
-      render :new
+      flash.now[:warning] = create_community.error
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -60,12 +56,12 @@ class CommunitiesController < ApplicationController
   end
 
   def set_ransack
-    Community.all.ransack(params[:q])
+    Community.all.order("id DESC").ransack(params[:q])
   end
 
   def destroy_community
     @destroy_community ||=
-        Communities::Destroy.call(community: @community)
+        Communities::Destroy.call(community: community)
   end
 
   def create_community
@@ -78,6 +74,6 @@ class CommunitiesController < ApplicationController
   end
 
   def community_params
-    params.require(:community).permit(:name, :description, :url, :category_id)
+    params.require(:community).permit(:name, :description, :url, :category_id, :social)
   end
 end

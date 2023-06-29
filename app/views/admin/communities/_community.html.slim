@@ -1,0 +1,4 @@
+= turbo_frame_tag community do
+  h1 class="text-3xl text-center font-bold"
+    = community.url
+  = link_to "delete", admin_community_path(community), data: { turbo_method: :delete }

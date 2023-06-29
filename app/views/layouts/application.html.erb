@@ -5,25 +5,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-
+  <body class="min-h-screen bg-slate-800">
     <%= render "layouts/nav" %>
-    <div class="main-banner bg-main">
-      <div>
-        <% flash.each do |type, msg| %>
-          <div class="container">
-            <div class="validation-error alert alert-<%= type %> mx-5 my-3">
-              <%= msg %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <%= yield %>
-    </div>
+    <%= render "layouts/flash" %>
+    <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>

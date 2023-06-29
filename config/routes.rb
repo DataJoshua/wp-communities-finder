@@ -12,14 +12,19 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :communities
+  resources :categories, only: %i[index show]
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-      resources :communities, only: %i[index create show destroy]
+      resources :communities
+      resources :categories, only: %i[index show]
       resources :users, only: %i[create]
       post "/login", to: "users#login"
+      get "/dashboard", to: "users#show"
     end
   end
 
-  resources :categories, only: %i[index show]
+  namespace :admin, module: "admin" do
+    resources :communities, only: %i[index destroy]
+  end
 end
