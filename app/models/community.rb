@@ -16,4 +16,8 @@ class Community < ApplicationRecord
 
   enumerize :social, in: SOCIALS, scope: :shallow, predicates: true 
   validates :social, presence: true
+
+  ransacker :created_at do
+    Arel.sql('date(created_at)')
+  end
 end
