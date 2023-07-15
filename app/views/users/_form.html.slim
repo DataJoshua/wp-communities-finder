@@ -1,17 +1,20 @@
-= form_with model: user, url: "register", class:"d-flex flex-column gap-3" do |form|
+= form_with model: user, url: "register", class: "bg-slate-300 flex flex-col gap-3 py-5 px-8 rounded-lg" do |form|
 
-    div
-        = form.label :first_name, class: "form-label text-white"
-        = form.text_field :first_name, class: "form-control"
-    div
-        = form.label :email, class:"form-label text-white"
-        = form.text_field :email, class: "form-control"
-    div
-        = form.label :nickname, class:"form-label text-white"
-        = form.text_field :nickname, class: "form-control"
-    div
-        = form.label :password, class: "form-label text-white"
-        = form.text_field :password, type: :password, class: "form-control"
+    h1 class="text-3xl underline text-center"
+        | Register!
 
-    div
-        = form.submit "Register!", class: "josh-btn"
+    div class="flex gap-2 flex-col"
+        = form.label :first_name, class: "basis-1/2 font-bold"
+        = form.text_field :first_name, class: "bais-1/2 rounded"
+    div class="flex gap-2 flex-col"
+        = form.label :email, class: "basis-1/2 font-bold"
+        = form.text_field :email, class: "bais-1/2 rounded"
+    div class="flex gap-2 flex-col"
+        = form.label :nickname, class: "basis-1/2 font-bold"
+        = form.text_field :nickname, class: "bais-1/2 rounded"
+    div class="flex gap-2 flex-col"
+        = form.label :password, class: "basis-1/2 font-bold"
+        = form.text_field :password, type: :password, class: "bais-1/2 rounded"
+
+    div class="flex gap-2 flex-col mt-5"
+        = form.submit "Register!", class: button_class 

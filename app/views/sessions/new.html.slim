@@ -1,6 +1,5 @@
-
-h1.text-center.text-white.pt-5
-    ' Log in!
-.container.h-75.d-flex.align-items-center.justify-content-center
-    .rounded.form-bg.jc-third
+div class="flex gap-5 justify-center"
+    div class="flex justify-center items-center"
         = render "form", url: "login", user: @user
+    div
+        = image_tag("astronaut.png")

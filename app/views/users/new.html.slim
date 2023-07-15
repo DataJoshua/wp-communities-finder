@@ -1,13 +1,11 @@
-
 - if @user.errors.any?
     .container.mt-5
         - @user.errors.each.with_index do |error, index|
             .validation-error.alert.alert-warning.mx-5[style="animation-delay:#{index * 0.3}s"]
                 = error.full_message
 
-h1.pt-5.text-center.text-white
-    | Sign Up with us
-
-.container.h-75.d-flex.align-items-center.justify-content-center
-    .form-bg.rounded.jc-third
+div class="flex gap-5 justify-center"
+    div class="flex justify-center items-center"
         = render "form", user: @user
+    div
+        = image_tag("astronaut.png")
