@@ -3,9 +3,9 @@ module Admin
     before_action :authenticate_current_user!
     before_action ->{ authorize! Community }
 
-    expose :communities, ->{ Community.all }
-
     def index
+      @q = Community.ransack(params[:q])
+      @communities = @q.result.includes(:user)
     end
 
     def destroy

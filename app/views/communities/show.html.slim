@@ -25,4 +25,7 @@ Pdiv class="text-white max-w-xl m-auto flex flex-col my-5 h-full justify-center 
       = link_to "Delete This community", community_path(community), data:{ turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "bg-red-500 py-3 px-4 rounded-lg inline-block"
     - if allowed_to?(:edit?, community)
       = link_to "Edit This community", edit_community_path(community), class: "bg-indigo-500 py-3 px-4 rounded-lg inline-block"
+    - if current_user.admin?
+      = link_to "Delete as Admin", admin_community_path(community), class: "bg-red-500 py-3 px-4 rounded-lg inline-block"
     = link_to "Join", community.url, class: "bg-blue-500 py-3 px-4 rounded-lg inline-block", target: "_blank"
+    

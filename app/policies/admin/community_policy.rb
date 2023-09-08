@@ -1,6 +1,6 @@
 module Admin
   class CommunityPolicy < Admin::AdminPolicy
-    def  index?
+    def index?
       admin?
     end
 
